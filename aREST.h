@@ -1001,7 +1001,8 @@ void process(char c){
              uint8_t footer_start = answer.length();
              if (answer.endsWith(" HTTP/"))
                footer_start -= 6; // length of " HTTP/"
-             arguments = answer.substring(header_length + 8, footer_start);
+             // Added additional digit to header length to remove equal sign when getting query parameters
+             arguments = answer.substring(header_length + 9, footer_start);
            }
          }
        }
